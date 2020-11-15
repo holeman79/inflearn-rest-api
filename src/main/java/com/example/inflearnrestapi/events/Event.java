@@ -1,5 +1,6 @@
 package com.example.inflearnrestapi.events;
 
+import com.example.inflearnrestapi.account.Account;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,6 +30,8 @@ public class Event {
     private boolean free;
     @Enumerated(EnumType.STRING)
     private EventStatus eventStatus = EventStatus.DRAFT;
+    @ManyToOne
+    private Account manager;
 
     public void update() {
         // Update free
